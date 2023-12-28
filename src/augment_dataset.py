@@ -2,15 +2,16 @@ import logging
 import random
 import spacy
 from collections import defaultdict
+import nltk
 from nltk.corpus import wordnet as wn
 from transformers import pipeline
 import string
 import json
 import os
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
-
+nltk.download()
 nlp = spacy.load("en_core_web_lg")
 unmasker = pipeline('fill-mask', model='xlm-roberta-base', top_k=10)
 
