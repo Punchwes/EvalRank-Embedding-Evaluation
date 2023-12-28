@@ -11,7 +11,7 @@ import os
 
 # os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
-nltk.download()
+nltk.download("popular")
 nlp = spacy.load("en_core_web_lg")
 unmasker = pipeline('fill-mask', model='xlm-roberta-base', top_k=10)
 
