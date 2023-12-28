@@ -58,6 +58,11 @@ if __name__ == '__main__':
 
     config = parser.parse_args()
 
+    config.sent_emb_model = 'simcse'
+    config.model_spec = "princeton-nlp/sup-simcse-bert-base-uncased"
+    config.dist_metric = "cos"
+    config.eval_type = "ranking" #### ranking, jaccard, bow 
+
     # - - - - - - - - - - - - - - - - -
     if config.sent_emb_model == 'bow' and config.bow_we_path == None:
         sys.exit("Error: Must specify the word embedding path if using BOW model")
@@ -85,6 +90,8 @@ if __name__ == '__main__':
     # - - - - - - - - - - - - - - - - -
     # load data
     if 'ranking' in config.eval_type:
+        sent_pairs_data = s_data_loader.Sent_ranking_dataset_loader(config)
+    elif 'jaccard' in config.eval_type or 'bow' in config.eval_type:
         sent_pairs_data = s_data_loader.Sent_ranking_dataset_loader(config)
     else:
         sent_pairs_data = None
