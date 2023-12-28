@@ -29,4 +29,4 @@ conda activate just_rank_augment
 #export WANDB_PROJECT=valentwin_dstl
 #export WANDB_MODE=offline
 
-python ../src/augment_dataset.py
+python src/augment_dataset.py
