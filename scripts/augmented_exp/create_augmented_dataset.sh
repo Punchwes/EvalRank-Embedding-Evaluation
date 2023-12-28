@@ -18,6 +18,9 @@
 # send mail to this address
 #SBATCH --mail-user=qiwei.peng@sussex.ac.uk
 
+# save the log to the specified location
+#SBATCH --output=./scripts/augmented_exp/create_augmented_dataset.log
+
 # run the application
 module purge
 module load cuda/11.2
