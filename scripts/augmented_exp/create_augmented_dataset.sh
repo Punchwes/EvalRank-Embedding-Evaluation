@@ -21,6 +21,9 @@
 # save the log to the specified location
 #SBATCH --output=./scripts/augmented_exp/create_augmented_dataset.log
 
+# The partition we use for this job script
+#SBATCH --partition=small
+
 # run the application
 module purge
 module load cuda/11.2
